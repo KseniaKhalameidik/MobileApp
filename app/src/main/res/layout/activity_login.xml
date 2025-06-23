@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:background="@android:color/white">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:navigationIconTint="@color/primary"
+            app:title="Вход"
+            app:titleTextAppearance="@style/ToolbarTitleStyle"
+            app:titleTextColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/loginImage"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/welcome_screen_image"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Логин"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintTop_toBottomOf="@id/loginImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/loginInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Войти"
+            android:textStyle="bold"
+            app:backgroundTint="@color/primary"
+            style="@style/materialButtonStyle"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/passwordInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

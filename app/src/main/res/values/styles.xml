@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="materialButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">4dp</item>
+        <item name="backgroundTint">@color/primary</item>
+    </style>
+
+    <style name="materialTextButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="ToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="Theme.Activity" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+    </style>
+
+</resources>
