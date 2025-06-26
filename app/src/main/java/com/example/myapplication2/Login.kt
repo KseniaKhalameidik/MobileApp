@@ -1,5 +1,6 @@
 package com.example.myapplication2
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,12 +23,15 @@ class Login: AppCompatActivity() {
         val loginButton = findViewById<MaterialButton>(R.id.loginButton)
 
         loginButton.setOnClickListener {
-            val login = loginInput.text?.toString() ?: ""
-            val password = passwordInput.text?.toString() ?: ""
-
-            if (login.isBlank() || password.isBlank()) {
-                Toast.makeText(this, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show()
-            }
+//            val login = loginInput.text?.toString() ?: ""
+//            val password = passwordInput.text?.toString() ?: ""
+//
+//            if (login.isBlank() || password.isBlank()) {
+//                Toast.makeText(this, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show()
+//            }
+              val intent = Intent(this, Activity::class.java)
+              startActivity(intent)
+              finish()
         }
     }
 }
