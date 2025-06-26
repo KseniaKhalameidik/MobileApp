@@ -64,9 +64,13 @@ class Registration: AppCompatActivity() {
         termsTextView.highlightColor = Color.TRANSPARENT
 
         findViewById<MaterialButton>(R.id.registerButton).setOnClickListener {
-            val login = findViewById<TextInputEditText>(R.id.loginInput).text.toString()
-            val nickname = findViewById<TextInputEditText>(R.id.nicknameInput).text.toString()
-            val password = findViewById<TextInputEditText>(R.id.passwordInput).text.toString()
+            val login = findViewById<TextInputEditText>(R.id.login).text.toString()
+            val nickname = findViewById<TextInputEditText>(R.id.nickname).text.toString()
+            val password = findViewById<TextInputEditText>(R.id.password).text.toString()
+            val repeatPassword = findViewById<TextInputEditText>(R.id.repeatPassword).text.toString()
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         val genderGroup = findViewById<RadioGroup>(R.id.genderRadioGroup)

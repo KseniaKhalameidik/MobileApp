@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:navigationIconTint="@color/primary"
+        app:title="Велосипед"
+        app:titleTextAppearance="@style/ToolbarTitleStyle"
+        android:layout_marginTop="24dp"
+        app:titleTextColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/activityDetailsUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/detailsDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14.32 км"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/detailsDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14 часов назад"
+            android:textSize="16sp"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/detailsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 ч 42 мин"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginBottom="2dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/detailsStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Старт"
+                    android:textSize="16sp"
+                    android:textColor="@color/dark"
+                    android:layout_marginRight="8dp"/>
+
+                <TextView
+                    android:id="@+id/detailsStartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14:49"
+                    android:textSize="16sp"
+                    android:textColor="@color/gray"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  |  "
+                android:textSize="16sp"
+                android:textColor="@color/gray"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/detailsEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Финиш"
+                    android:textSize="16sp"
+                    android:textColor="@color/dark"
+                    android:layout_marginRight="8dp"/>
+
+                <TextView
+                    android:id="@+id/detailsEndTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16:31"
+                    android:textSize="16sp"
+                    android:textColor="@color/gray"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Комментарий"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/detailsComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+</LinearLayout>
