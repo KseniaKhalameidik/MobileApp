@@ -25,6 +25,7 @@
         <activity android:name=".Login"/>
         <activity android:name=".Activity"/>
         <activity android:name=".ActivityDetails"/>
+        <activity android:name=".ChangePasswordActivity"/>
     </application>
 
 </manifest>

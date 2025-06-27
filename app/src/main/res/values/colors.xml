@@ -7,4 +7,5 @@
     <color name="gray">#808080</color>
     <color name="light">#E0E0E0</color>
     <color name="error">#B00020</color>
+    <color name="buttonPause">#E5DDFE</color>
 </resources>
