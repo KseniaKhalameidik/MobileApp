@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityFragment : Fragment() {
     override fun onCreateView(
@@ -32,6 +33,14 @@ class ActivityFragment : Fragment() {
                     else -> throw IllegalStateException()
                 }
             }
+        }
+
+        val fab = view.findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, StartActivityFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
