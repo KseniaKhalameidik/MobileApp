@@ -3,6 +3,7 @@ package com.example.myapplication2
 sealed class ActivityListDate {
     data class Section(val title: String) : ActivityListDate()
     data class Activity(
+        val id: Int,
         val distance: String,
         val time: String,
         val type: String,

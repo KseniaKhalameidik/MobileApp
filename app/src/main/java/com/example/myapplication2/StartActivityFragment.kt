@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class StartActivityFragment : Fragment() {
 
@@ -25,11 +27,7 @@ class StartActivityFragment : Fragment() {
         val recycler = view.findViewById<RecyclerView>(R.id.activityTypeRecycler)
         recycler.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
 
-        val types = listOf(
-            ActivityType("Велосипед", R.drawable.welcome_screen_image),
-            ActivityType("Бег", R.drawable.welcome_screen_image),
-            ActivityType("Шаг", R.drawable.welcome_screen_image)
-        )
+        val types = ActivityType.values().toList()
 
         val adapter = ActivityTypeAdapter(types) { type ->
             selectedType = type
@@ -37,15 +35,43 @@ class StartActivityFragment : Fragment() {
         recycler.adapter = adapter
 
         view.findViewById<MaterialButton>(R.id.startButton).setOnClickListener {
-            val trackingFragment = TrackingFragment()
             val args = Bundle()
-            args.putString("type", selectedType?.name ?: "Велосипед")
-            trackingFragment.arguments = args
+            args.putString("type", selectedType?.displayName ?: ActivityType.BIKE.displayName)
+            val db = DatabaseProvider.getDatabase(requireContext())
+            val type = selectedType ?: ActivityType.BIKE
+            val now = System.currentTimeMillis()
+            val sevenDaysMillis = 1000L * 60 * 60 * 24 * 7
+            val startTime = now - (0..sevenDaysMillis).random()
 
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, trackingFragment)
-                .addToBackStack(null)
-                .commit()
+            val durationMillis = (1000L * 60 * (5..120).random())
+            val endTime = startTime + durationMillis
+
+            val coordinates = List((5..20).random()) {
+                LatLng(
+                    latitude = 55.0 + Math.random(),
+                    longitude = 37.0 + Math.random()
+                )
+            }
+
+            val activity = ActivityEntity(
+                type = type,
+                startTime = startTime,
+                endTime = endTime,
+                coordinates = coordinates
+            )
+            lifecycleScope.launch {
+                db.activityDao().insert(activity)
+                // После сохранения — переход на следующий экран
+                val trackingFragment = TrackingFragment()
+                val args = Bundle()
+                args.putString("type", (selectedType ?: ActivityType.BIKE).displayName)
+                trackingFragment.arguments = args
+
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, trackingFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
         }
 
         val toolbar = view.findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.back)
