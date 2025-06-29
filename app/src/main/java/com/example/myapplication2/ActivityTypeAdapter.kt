@@ -29,7 +29,7 @@ class ActivityTypeAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.name.text = item.name
+        holder.name.text = item.displayName
         holder.icon.setImageResource(item.iconRes)
         holder.root.isSelected = position == selectedIndex
 

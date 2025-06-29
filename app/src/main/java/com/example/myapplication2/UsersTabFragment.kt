@@ -39,25 +39,34 @@ class UsersTabFragment : Fragment() {
         return listOf(
             ActivityListDate.Section("Вчера"),
             ActivityListDate.Activity(
+                id = 11,
                 distance = "14.32 км",
                 time = "2 часа 46 минут",
                 type = "Серфинг 🏄",
                 user = "@van_darkholme",
-                date = "14 часов назад"
+                date = "14 часов назад",
+                startTime = "15:08",
+                finishTime = "17:54"
             ),
             ActivityListDate.Activity(
+                id = 12,
                 distance = "228 м",
                 time = "14 часов 48 минут",
                 type = "Качели",
                 user = "@techniquepasha",
-                date = "14 часов назад"
+                date = "14 часов назад",
+                startTime = "14:55",
+                finishTime = "02:08"
             ),
             ActivityListDate.Activity(
+                id = 13,
                 distance = "10 км",
                 time = "1 час 10 минут",
                 type = "Езда на кадилак",
                 user = "@morgen_shtern",
-                date = "14 часов назад"
+                date = "14 часов назад",
+                startTime = "10:00",
+                finishTime = "11:10"
             )
         )
     }

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ActivityAdapter(
-    private val items: List<ActivityListDate>,
+    private var items: List<ActivityListDate>,
     private val onActivityClick: (ActivityListDate.Activity) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -76,5 +76,10 @@ class ActivityAdapter(
 
             itemView.setOnClickListener { onClick(item) }
         }
+    }
+
+    fun setData(newItems: List<ActivityListDate>) {
+        items = newItems
+        notifyDataSetChanged()
     }
 }
